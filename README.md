@@ -2,6 +2,8 @@
 
 `language` is a very small library for building DSLs in Javascript.
 
+    npm install language
+
 # Why?
 
 Because magic scope!
