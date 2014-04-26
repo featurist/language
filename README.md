@@ -44,4 +44,4 @@ Because magic scope!
 
 # How?
 
-Read the source, it's small.
+Read the [source](https://github.com/featurist/language/blob/master/index.js), it's small.
