@@ -1,6 +1,6 @@
 {
   "name": "language",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DSLs for the washed masses",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "test": "test"
   },
   "dependencies": {
-    "chai": "~1.9.1"
   },
   "repository": {
     "type": "git",
