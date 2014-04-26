@@ -1,0 +1,15 @@
+{
+  "name": "language",
+  "version": "0.1.0",
+  "description": "DSLs for the washed masses",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/spec.js"
+  },
+  "author": "Tim Macfarlane <timmacfarlane@gmail.com>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
+  }
+}
