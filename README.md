@@ -10,25 +10,23 @@ Because magic scope! and because no globals!
 
     var language = require('language');
 
-    var position = {x: 0, y: 0};
-
     var robot = language({
-      position: position,
+      position: {x: 0, y: 0},
 
       moveLeft: function() {
-        position.x--;
+        this.position.x--;
       },
 
       moveRight: function() {
-        position.x++;
+        this.position.x++;
       },
 
       moveUp: function() {
-        position.y--;
+        this.position.y--;
       },
 
       moveDown: function() {
-        position.y++;
+        this.position.y++;
       },
     });
 

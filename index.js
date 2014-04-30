@@ -10,8 +10,23 @@ function fieldsInObject(o) {
   return fields;
 };
 
+function bind(fields, object) {
+  for (var n = 0; n < fields.length; n++) {
+    (function (n) {
+      var field = [fields[n]];
+      var value = object[field];
+      if (typeof value === 'function') {
+        object[field] = function () {
+          return value.apply(object, arguments);
+        };
+      }
+    })(n);
+  }
+}
+
 module.exports = function (dsl) {
   var terms = fieldsInObject(dsl);
+  bind(terms, dsl);
   var callArgs = terms.map(function (p) { return 'dsl.' + p; }).join(',');
 
   var runDsl = function (fn) {

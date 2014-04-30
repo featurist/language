@@ -25,4 +25,28 @@ describe('language', function () {
     
     f('arg1','arg2').should.equal('asdf,arg1,arg2');
   });
+
+  it('can call methods on language object, with this', function () {
+    var simple = language({
+      n: 1,
+      inc: function (amount) {
+        if (typeof amount === 'undefined') {
+          amount = 1;
+        }
+
+        this.n += amount;
+      },
+      val: function () {
+        return this.n;
+      }
+    });
+
+    var f = simple(function () {
+      inc();
+      inc(2);
+      return val();
+    });
+    
+    f.should.equal(4);
+  });
 });
