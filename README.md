@@ -6,7 +6,7 @@
 
 # Why?
 
-Because magic scope!
+Because magic scope! and because no globals!
 
     var language = require('language');
 
