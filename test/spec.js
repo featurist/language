@@ -19,7 +19,7 @@ describe('language', function () {
       asdf: 'asdf'
     });
 
-    var f = simple.prepare(function (arg1, arg2) {
+    var f = simple.function(function (arg1, arg2) {
       return asdf + ',' + arg1 + ',' + arg2;
     });
     
@@ -36,6 +36,20 @@ describe('language', function () {
     simple(function () {
       return asdf;
     }).should.equal('asdf');
+  });
+
+  it('passes through `this`', function () {
+    var simple = language({
+      asdf: 'asdf'
+    });
+
+    var obj = {property: 'property'};
+
+    obj.f = simple.function(function (arg1, arg2) {
+      return asdf + ',' + this.property;
+    });
+    
+    obj.f().should.equal('asdf,property');
   });
 
   it('can call methods on language object, with this', function () {

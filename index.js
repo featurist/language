@@ -39,8 +39,8 @@ module.exports = function (dsl) {
         'var args = Array.prototype.slice.call(arguments, 1);\n'
       + 'return '
       + '  (function (' + terms.join(',') + ') {\n'
-      + '    return (' + fn + ').apply(undefined, args);\n'
-      + '  })(' + callArgs + ');';
+      + '    return (' + fn + ').apply(this, args);\n'
+      + '  }).call(this, ' + callArgs + ');';
 
     var dslFn = new Function('dsl', body);
 
@@ -48,11 +48,11 @@ module.exports = function (dsl) {
       var args = Array.prototype.slice.call(arguments, 0);
       args.unshift(dsl);
 
-      return dslFn.apply(undefined, args);
+      return dslFn.apply(this, args);
     };
   };
 
-  runDsl.prepare = prepare;
+  runDsl.function = prepare;
 
   return runDsl;
 };

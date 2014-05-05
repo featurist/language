@@ -1,6 +1,6 @@
 {
   "name": "language",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "DSLs for the washed masses",
   "main": "index.js",
   "scripts": {
