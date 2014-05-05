@@ -26,6 +26,18 @@ describe('language', function () {
     f('arg1','arg2').should.equal('asdf,arg1,arg2');
   });
 
+  it('ignores reserved words', function () {
+    var simple = language({
+      asdf: 'asdf',
+      "var": 'var',
+      "class": "class"
+    });
+
+    simple(function () {
+      return asdf;
+    }).should.equal('asdf');
+  });
+
   it('can call methods on language object, with this', function () {
     var simple = language({
       n: 1,

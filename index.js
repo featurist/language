@@ -2,7 +2,7 @@ function fieldsInObject(o) {
   var fields = [];
 
   for (var field in o) {
-    if (o.hasOwnProperty(field)) {
+    if (o.hasOwnProperty(field) && !reservedWords.hasOwnProperty(field)) {
       fields.push(field);
     }
   }
@@ -55,4 +55,39 @@ module.exports = function (dsl) {
   runDsl.prepare = prepare;
 
   return runDsl;
+};
+
+var reservedWords = {
+  "break": true,
+  "case": true,
+  "catch": true,
+  "continue": true,
+  "debugger": true,
+  "default": true,
+  "delete": true,
+  "do": true,
+  "else": true,
+  "finally": true,
+  "for": true,
+  "function": true,
+  "if": true,
+  "in": true,
+  "instanceof": true,
+  "new": true,
+  "return": true,
+  "switch": true,
+  "this": true,
+  "throw": true,
+  "try": true,
+  "typeof": true,
+  "var": true,
+  "void": true,
+  "while": true,
+  "with": true,
+  "class": true,
+  "enum": true,
+  "export": true,
+  "extends": true,
+  "import": true,
+  "super": true
 };
